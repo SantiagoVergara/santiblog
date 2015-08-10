@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block contenido %}
+
+<html>
+    <body>
+        <div class="boton_magico">
+            <div class="container">
+                <div class="raw">
+                    <div class="col s5 offset-s3 card-panel teal lighten-2 center-align"><h4>Boton magico</h4></div>
+                </div>
+            </div>
+            <input type="button" id="magico" value="Continuar" onmouseover="troll()" onclick="win()" ></input>
+        </div>
+    
+    <script>
+        function troll(){
+            document.getElementById("magico").style.marginTop = Math.floor((Math.random()*400) + 1);
+            document.getElementById("magico").style.marginLeft = Math.floor((Math.random()*400) + 1);
+        }
+        function win(){
+            alert("¡Ganaste!");
+            location.href="Inicio.html";
+        }
+    </script>
+    </body>
+</html>
+{% endblock %}

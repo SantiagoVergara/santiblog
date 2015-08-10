@@ -1,0 +1,173 @@
+			
+body{font-family: Georgia, "Times New Roman",
+    Times, serif;
+    color: black;
+    background-image: url(img/Fondo.png);
+    margin-bottom: 25px;
+}
+* {
+    margin:0px;
+    padding:0px;
+}
+#header {
+    margin:auto;
+    width:500px;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
+}
+
+ul, ol {
+    list-style:none;
+}
+
+.nav {
+    width:500px;
+    margin:0 auto;
+}
+
+.nav > li {
+    float:left;
+}
+
+.nav li a {
+    background-color:#000;
+    color:#fff;
+    text-decoration:none;
+    padding:10px 12px;
+    display:block;
+}
+
+.nav li a:hover {
+    background-color:#434343;
+}
+
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.nav li:hover > ul {
+    display:block;
+}
+
+.nav li ul li {
+    position:relative;
+}
+
+.nav li ul li ul {
+    right:-140px;
+    top:0px;
+}
+.contcu{
+    margin-left: 412px;
+    margin-right: 482px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+.contenido{
+    margin-left: 500px;
+    margin-right: 580px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+.logo{
+    margin left: 500px;
+}
+.fondoCalc{
+background-color: black;
+text-align: center;	
+margin-left: 550px;
+margin-right: 600px;
+}
+input[type='button']{
+	width: 35px;
+	height: 35px;
+	margin: 5px;
+    color: dimgray;
+}
+input[type='textcal']{
+	width: 175px;	
+	margin: 8px;
+	border:1px solid #333333;
+	border-radius:5px;
+	text-align:right;
+	background: gainsboro;
+	color:dimgray;
+	padding: 4px;
+}
+address {
+  margin-top: 23.6em;
+  color: white;
+      
+}
+input[type='texto']{
+    height: 100px;
+    width: 235px;
+}
+footer {
+    background-color: aliceblue;
+}
+hinv {
+    background-color: white;
+    opacity: 0.5;
+    filter: alpha(opacity=60);
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: black;
+    font-size: xx-large;
+}
+.cuadrado {
+    width: 62%;
+    max-width: 1000px;
+    margin: 20px auto;
+    overflow: hidden;
+    margin-top: 55px;
+}
+.slides {
+    width: 100%;
+}
+.slides img{
+    width: 100%;
+}
+.slidesjs-pagination{
+    background-color: dimgrey;
+    list-style: none;
+    overflow: hidden;   
+}
+.slidesjs-pagination li {
+    float: left;
+}
+.slidesjs-pagination li a {
+    display:block;
+    padding: 10px 20px;
+    color:white;
+    text-decoration: none;
+}
+.slidesjs-pagination li a:hover {
+    background-color: black;
+}
+.slides .active{
+    background-color: black;
+}
+.slidesjs-navigation{
+    background-color: black;
+    color:white;
+    text-decoration: none;
+    display:inline-block;
+    padding: 10px 20px;
+    float:right;
+}
+.fondoConv{
+    background-color: black;
+    text-align: center;	
+    margin-left: 550px;
+    margin-right: 600px;
+    color:white;
+}

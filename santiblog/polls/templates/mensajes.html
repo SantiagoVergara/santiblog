@@ -1,0 +1,8 @@
+<div class="posts">
+    {% for comentario in coments %}
+        <h3>{{comentario.titulo_txt}}</h3>
+        <h4>{{comentario.fecha_pub}}</h4>
+        <p>{{comentario.coment_txt}}</p>
+        <hr>
+    {% endfor %}
+</div>

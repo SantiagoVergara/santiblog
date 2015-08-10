@@ -1,0 +1,77 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Vergara Webpage</title>
+        <link rel="stylesheet" href="/static/css/materialize.css">
+        <script type="text/javascript" src="/static/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+        <link rel=stylesheet href="/static/css/stylesheet.css" >
+        
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="{% url 'mclovin:Curriculum' %}">Inicio</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'mclovin:Barra' %}">Barra</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'mclovin:Cronometro' %}">Cronometro</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'mclovin:Conversor' %}">Conversor de Moneda</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'mclovin:Boton' %}">Boton Troll</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'mclovin:Calculadora' %}">Calculadora</a></li>
+            <li class="divider"></li>
+  
+
+        </ul>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{% url 'mclovin:Curriculum' %}" class="brand-logo">Vergara Website</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{% url 'mclovin:Noticias' %}"><i class="mdi-maps-layers left"></i>Noticias</a></li>
+                    <li><a href="{% url 'mclovin:Curriculum' %}"><i class="mdi-action-face-unlock left"></i>Curriculum</a></li>
+                    <li><a href="{% url 'mclovin:Contacto' %}"><i class="mdi-communication-email left"></i>Contacto</a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="mdi-hardware-desktop-windows left"></i>Programas<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </head>
+    <body>
+
+        {% block contenido %}
+        {% endblock %}
+
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Santiago Vergara</h5>
+                        <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Para mas informacion:</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Google+</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2014 Copyright Text
+                    <a class="grey-text text-lighten-4 right" href="#!">Mas Links</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="js/jquery.slides.js"></script>
+        <script>
+            $(function(){
+                $(".slides").slidesjs({
+                });
+            });
+        </script>
+    </body>
+</html>

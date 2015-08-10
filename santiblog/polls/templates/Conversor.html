@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block contenido %}
+
+<html>
+    <body>
+    <br>
+    <br>
+  <div class="container">
+    <div class="section">
+      <div class="row" class= section scrollspy id=contact>
+                <div class="col s6 offset-s3 card-panel teal lighten-2 center-align"><h4>Conversor de monedas</h4></div>
+        <div class="col s12 center">
+            <div class="container">
+                <br>
+                <br>
+                <div>
+                    <div class="col l5 offset-l1">
+                    <input type="text" id="valor" value=""></input>
+                    </div>
+                    <select id="tipoMoneda" class="col l5 "> 
+                    <option selected>Seleccionar Tipo de Moneda</option>
+                    <option value="1">Pesos Argentinos </option> 
+                    <option value="2">Dolares </option> 
+                    <option value="3">Euros </option> 
+                    <option value="4">Pesos Uruguayos</option>
+                    <option value="5">Pesos Chilenos</option></select>
+                </div>
+                <div>
+                <br>
+                <div class="col l5 offset-l1">
+                    <input type="text" id="valorFinal" value=""></input></div>
+                    <select id="TipoMonedaFinal" class="col l5 offset-l"> 
+                    <option selected>Seleccionar Tipo de Moneda</option>
+                    <option value="1">Pesos Argentinos </option> 
+                    <option value="2">Dolares </option> 
+                    <option value="3">Euros </option> 
+                    <option value="4">Pesos Uruguayos</option>
+                    <option value="5">Pesos Chilenos</option></select>
+                </div>
+                <div class="left-align">
+                    <a type="button" id="botonConvertir" value="Convertir" onclick="cambio()" class="waves-effect waves-light btn">Convertir</a>
+
+                    <a type="button" id="botonLimpiar" value="Limpiar" onclick="limpieza()" class="waves-effect waves-light btn">Borrar</a>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+    function limpieza(){
+        document.getElementById("valorFinal").value = "";
+        document.getElementById("valor").value = "";
+    }
+    function cambio(){
+        var seleccion1 = document.getElementById("tipoMoneda");
+        var valorSeleccion1 =seleccion1.options[seleccion1.selectedIndex].value;
+
+        var seleccion2 = document.getElementById("TipoMonedaFinal"); 
+        var valorSeleccion2 = seleccion2.options[seleccion2.selectedIndex].value;
+        console.log(valorSeleccion1);
+        console.log(valorSeleccion2);
+        var valorDivisa=0.0;
+
+        switch(parseInt(valorSeleccion1)) {
+            case 1:
+
+                switch(parseInt(valorSeleccion2)) {
+                    case 1:
+                        valorDivisa=1;
+                        break;
+                    case 2:
+                        valorDivisa=0.11231;
+                        break;
+                    case 3:
+                        valorDivisa=0.10396;
+                        break;    
+                    case 4:
+                        valorDivisa=68.540;
+                        break;
+                    case 5:
+                        valorDivisa=2.9911;
+                        break;
+                    case 0:
+                        alert("Debe Seleccionar una Divisa");
+                        break;
+                }
+                break;
+            case 2:
+                switch(parseInt(valorSeleccion2)) {
+                    case 1:
+                        console.log("enter");
+                        valorDivisa=8.8968;
+                        break;
+                    case 2:
+                        valorDivisa=1.0;
+                        break;
+                    case 3:
+                        valorDivisa=0.92687;
+                        break;    
+                    case 4:
+                        valorDivisa=609.79;
+                        break;
+                    case 5:
+                        valorDivisa=26.611;
+                        break;
+                    case 0:
+                        alert("Debe Seleccionar una Divisa");
+                        break;
+                }
+                break;
+            case 3:
+                switch(parseInt(valorSeleccion2)) {
+                    case 1:
+                        valorDivisa=9.5988;
+                        break;
+                    case 2:
+                        valorDivisa=1,0755;
+                        break;
+                    case 3:
+                        valorDivisa=1;
+                        break;    
+                    case 4:
+                        valorDivisa=657.90;
+                        break;
+                    case 5:
+                        valorDivisa=28.711;
+                        break;
+                    case 0:
+                        alert("Debe Seleccionar una Divisa");
+                        break;
+                }
+                break;    
+            case 4:
+                switch(parseInt(valorSeleccion2)) {
+                    case 1:
+                        valorDivisa=0.014590;
+                        break;
+                    case 2:
+                        valorDivisa=0.0016400;
+                        break;
+                    case 3:
+                        valorDivisa=0.0015200;
+                        break;    
+                    case 4:
+                        valorDivisa=1;
+                        break;
+                    case 5:
+                        valorDivisa=0.043640;
+                        break;
+                    case 0:
+                        alert("Debe Seleccionar una Divisa");
+                        break;
+                }
+                break;
+            case 5:
+                switch(parseInt(valorSeleccion2)) {
+                    case 1:
+                        valorDivisa=0.33433;
+                        break;
+                    case 2:
+                        valorDivisa=0.037580; 
+                        break;
+                    case 3:
+                        valorDivisa=0.034830;
+                        break;    
+                    case 4:
+                        valorDivisa=22.915;
+                        break;
+                    case 5:
+                        valorDivisa=1;
+                        break;
+                    case 0:
+                        alert("Debe Seleccionar una Divisa");
+                        break;
+                }
+                break;
+            case 0:
+                alert("Debe Seleccionar una Divisa");
+                break;
+        }
+        var moneda = document.getElementById("valor");
+        var resultado = eval(parseFloat(moneda.value)*parseFloat(valorDivisa));
+        var MostrarResultado = document.getElementById("valorFinal");
+        MostrarResultado.value=resultado;
+        console.log(moneda.value+" * "+ valorDivisa+" = "+resultado);
+    }
+    $(document).ready(function(){
+        $("select").material_select()
+    });
+</script>
+</html>
+{% endblock %}

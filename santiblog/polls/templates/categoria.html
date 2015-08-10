@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <h2>{{categoria.titulo_txt}}</h2>
+    {% for posts in post %}
+        <div class="posts">
+        <h3>{{posts.titulo_txt}}</h3>
+        <a href="{% url 'mclovin:posts' posts.id %}">Mas info</a>
+        <p>{{posts.txt_resumen}}</p>
+        </div>
+    {% endfor %}
+{% endblock%}

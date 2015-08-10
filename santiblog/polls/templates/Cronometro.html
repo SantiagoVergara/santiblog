@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block contenido %}
+
+<html>
+
+    <body>
+        <br></br>
+        <div class="row flow-text">
+            <div class="col s4 offset-s4 card-panel teal lighten-2 center-align"><h4> Cronometro</h4></div>
+            <div class="col s2.5 offset-s4 card-panel green lighten-2 flow-text">
+                <div class="col s0.5">
+                    <div class="hour">00</div>
+                </div>
+                <div class="col s0.5">
+                    <div class="">:</div>
+                </div>
+                <div class="col s0.5">
+                    <div id="minute">00</div>
+                </div>
+                <div class="col s0.5">
+                    <div class="">:</div>
+                </div>
+                <div class="col s0.5">
+                    <div id="second">00</div>
+                </div>
+            <br>
+                <div class="center-align">
+                <a class="waves-effect waves-light btn" id="btn-comenzar"><i id="play" class="mdi-av-play-circle-outline"></i></a>
+                <a class="waves-effect waves-light btn" id="btn-borrar"><i class="mdi-av-replay"></i></a>
+                </div>
+            </div>
+        </div>
+    
+    <script>
+        $(document).ready(function(){
+
+            var tiempo = {
+                hora: 0,
+                minuto: 0,
+                segundo: 0
+            };
+
+            var tiempo_corriendo = null;
+            var pasCom=1;
+
+            $("#btn-comenzar").click(function(){
+                if ( pasCom == 1 ){
+                    pasCom=0;
+                    $("#play").removeAttr('class');
+                    $("#play").attr('class', 'mdi-av-pause-circle-outline');
+                    tiempo_corriendo = setInterval(function(){
+                        tiempo.segundo++;
+                        if(tiempo.segundo >= 60)
+                        {
+                            tiempo.segundo = 0;
+                            tiempo.minuto++;
+                        }      
+                        if(tiempo.minuto >= 60)
+                        {
+                            tiempo.minuto = 0;
+                            tiempo.hora++;
+                        }
+                        $("#hour").text(tiempo.hora < 10 ? '0' + tiempo.hora : tiempo.hora);
+                        $("#minute").text(tiempo.minuto < 10 ? '0' + tiempo.minuto : tiempo.minuto);
+                        $("#second").text(tiempo.segundo < 10 ? '0' + tiempo.segundo : tiempo.segundo);
+                    }, 1000);
+                }
+                else 
+                {
+                    $("#play").removeAttr('class');
+                    $("#play").attr('class', 'mdi-av-play-circle-outline');
+                    clearInterval(tiempo_corriendo);
+                    pasCom=1;
+                }
+
+            })
+            $("#btn-borrar").click(function(){
+                $("#hour").text('00');
+                $("#minute").text('00');
+                $("#second").text('00');
+                tiempo.hora=0;
+                tiempo.minuto=0;
+                tiempo.segundo=0;
+            })
+                
+
+        })
+    </script>
+    </body>
+</html>
+{% endblock %}

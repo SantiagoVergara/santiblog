@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block contenido %}
+
+<html>
+    <br>
+
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col s12 offset-s1 card-panel grey lighten-5 z-depth-1 m8 offset-m2 center-align"><h4> Curriculum Vitae</h4></div>
+            <div class="col s12 offset-s1 card-panel grey lighten-5 z-depth-1 m8 offset-m2">
+                <div class="col s4">
+                  <img src="/static/img/perfil.png" alt="" class="circle responsive-img">
+                    </div>
+                        <div class="col s8">
+                            <span class="black-text">
+                                <h5>Datos Personales</h5>
+                                <p>Nombre y Apellido: Santiago Vergara</p>
+                                <p>Fecha y Lugar de nacimiento: 27/10/1997 C&oacute;rdoba</p>
+                                <p>DNI: 40686067</p>
+                                <p>Direcci&oacute;n: Jos&eacute; de Olmedo 446</p>
+                                <p>Localidad: C&oacute;rdoba-Capital   CP:5001</p>
+                                <p>Tel&eacute;fono: 3513208575</p>
+                                <p>E-mail: santivergara.27@gmail.com</p>
+                                <h5>Informaci&oacute;n Acad&eacute;mica</h5>
+                                <p>Nivel Primario: Colegio Coraz&oacute;n de Mar&iacute;a</p>
+                                <p>Nivel Secundario: Instituto T&eacute;cnico Salesiano Villada</p>
+                            </span>
+                        </div>
+                </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+</body>
+</html>
+{% endblock %}

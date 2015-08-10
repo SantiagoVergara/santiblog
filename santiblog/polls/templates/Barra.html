@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block contenido %}
+
+<html>
+    <body>
+        </nav>
+    <div class="content" align="center">
+        <div class="container">
+            <div class="raw">
+                <div class="col s5 offset-s3 card-panel teal lighten-2 center-align"><h4> Barra de progreso</h4></div>
+            </div>
+            <progress id="barra" max="200" value="0"></progress><br><br>
+            <img id="img" height = "450px" width="650px" src="img/1.jpg"/>
+
+        </div>
+    </div>
+
+
+
+    <script>
+        var images = ["/static/img/1.jpg","/static/img/2.jpg","/static/img/3.jpg","/static/img/4.jpg","/static/img/5.jpg"];
+        var tiempo = setInterval(function(){load();},1000);
+
+
+        $(document).ready(function(){
+            load();
+        });
+
+        var barra = document.getElementById("barra");
+        var img = document.getElementById("img");
+        a = 0;
+        i = 1;
+        var time = setInterval(load, 100);
+
+        function load(){
+            a +=5 ;
+            barra.value = a;
+            if (barra.value == 200){
+                a=0;
+                barra.value = a;
+                img.setAttribute("src" ,images[i]);
+                i++;
+                if(i==4){i=0}
+            }
+        }
+    </script>
+    </body>
+</html>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block contenido %}
+
+<html>
+        <br></br>
+<body>
+
+<div class="container">
+    <div class="row ">
+        <div class="col s5 offset-s3 card-panel teal lighten-2 center-align"><h4> Calculadora</h4></div>
+        <div class="col s5 offset-s3 center-align card-panel grey lighten-1 flow-text">
+            <div>
+                <form name="form" class="fondoCalc">
+                    <br>
+                    <input class="" type="textcal" name="calcDisplay" value="0"/>
+                    <br>
+                    <br>
+                    <a type="button" value="1" onclick="addNumero('1');" class="waves-effect waves-light btn">1</a>
+                    <a type="button" value="2" onclick="addNumero('2');" class="waves-effect waves-light btn">2</a>
+                    <a type="button" value="3" onclick="addNumero('3');" class="waves-effect waves-light btn">3</a>
+                    <a type="button" value="+" onclick="oper('+');" class="waves-effect waves-light btn">+</a>
+                    <br>
+                    <a type="button" value="4" onclick="addNumero('4');" class="waves-effect waves-light btn">4</a>
+                    <a type="button" value="5" onclick="addNumero('5');" class="waves-effect waves-light btn">5</a>
+                    <a type="button" value="6" onclick="addNumero('6');" class="waves-effect waves-light btn">6</a>
+                    <a type="button" value="-" onclick="oper('-');" class="waves-effect waves-light btn">-</a>
+                    <br>
+                    <a type="button" value="7" onclick="addNumero('7');" class="waves-effect waves-light btn">7</a>
+                    <a type="button" value="8" onclick="addNumero('8');" class="waves-effect waves-light btn">8</a>
+                    <a type="button" value="9" onclick="addNumero('9');" class="waves-effect waves-light btn">9</a>
+                    <a type="button" value="x" onclick="oper('*');" class="waves-effect waves-light btn">x</a>
+                    <br>
+                    <a type="button" value="CE" onclick="clean();" class="waves-effect waves-light btn">CE</a>
+                    <a type="button" value="0" onclick="addNumero('0');" class="waves-effect waves-light btn">0</a>
+                    <a type="button" value="=" onclick="result();" class="waves-effect waves-light btn">=</a>
+                    <a type="button" value="/" onclick="oper('/');" class="waves-effect waves-light btn">/</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+	var operacion = "";
+	var operando = false;	
+	function addNumero(num){
+		var oper1 = document.form.calcDisplay;
+		if (oper1.value==0 || operando){
+			oper1.value = num;
+			operando=false;
+		}else{
+			oper1.value = oper1.value + num;
+		}
+		operacion = operacion + num;
+	};
+	function oper(op){
+		operacion = operacion + op;
+		operando=true;
+	};
+	function clean(){
+		operacion = "";
+		var calcDisplay = document.form.calcDisplay;
+		calcDisplay.value = "0";
+	};
+	function result(){
+		
+		var calcDisplay = document.form.calcDisplay;
+		calcDisplay.value = eval(operacion);
+	};
+</script>
+<script src="js/jquery.min.js"></script>
+<script src="js/materialize.min.js"></script>
+    
+</body>
+    </html>
+{% endblock %}

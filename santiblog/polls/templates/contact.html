@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block content %}
+    <form id="formulario" method="post">
+    {% csrf_token %}
+        <h2>Contactenos</h2>
+        <hr>
+        <h3>Le responderemos en las proximas 48hs</h3>
+        <div class="usuario">
+            Nombre:
+            <input id="nombre" name="nombre" type="text"/>
+            Email:
+            <input id="email" name="email" type="text" />
+        </div>
+        <div class="mensaje">
+            Mensaje:
+            <textarea rows="6" size="60" cols="65" name="mensaje" id="mensaje"></textarea>
+        </div>
+        <button id="botonEnviar" type="submit" value="Enviar">Enviar</button>
+    </form>
+{% endblock %}

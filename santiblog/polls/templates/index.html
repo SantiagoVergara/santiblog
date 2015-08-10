@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block contenido %}
+
+
+<html>
+
+    <link rel="stylesheet" href="/static/css/materialize.css">
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+    <link rel=stylesheet href="/static/css/stylesheet.css" >
+
+    <body>
+        <div class="cuadrado">
+
+            <div class="slides">
+                <div>
+                    <img src="/static/img/4.jpg" alt="">
+                </div>
+                <div>
+                    <img src="/static/img/1.jpg" alt="">
+                </div>
+                <div>
+                    <img src="/static/img/2.jpg" alt="">
+                </div>
+                <div>
+                    <img src="/static/img/3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+<h2> Posts Recientes </h2>
+{% for post in posts %}
+    <div class="posts">
+    <h3>{{post.titulo_txt}}</h3>
+    <a href="{% url 'mclovin:posts' post.id %}">Mas info</a>
+    <p>{{post.txt_resumen}}</p>
+    </div>
+{% endfor %}
+<br>
+<hr>
+<br>
+<h2> Explorar por Categorias </h2>
+{% for categoria in categorias %}
+    <h3><li><a href="{% url 'mclovin:categoria' categoria.id %}">{{categoria.titulo_txt}}></a></li></h3>
+{% endfor %}
+
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="/static/js/jquery.slides.js"></script>
+        <script>
+            $(function(){
+                $(".slides").slidesjs({
+                });
+            });
+        </script>
+    </body>
+</html>
+{% endblock %}

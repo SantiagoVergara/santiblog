@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <div class="posts">
+        <h2>{{post.titulo_txt}}</h2>
+        <hr>
+        <h3>{{post.txt_resumen}}</h3>
+        <p>{{post.txt_cont}}</p>
+    </div>
+    <div class="posts">
+        <h2>Comentarios</h2>
+        {% csrf_token %} 
+        <div id="mensajes">
+            {% include "mensajes.html" %}
+        </div>
+        <div class="posts">
+        <br>
+        <br>
+        <h3>Nombre:</h3>
+        <br>
+        <input name="nombre" type="text" style="color:black" id="name" required data-validation-required-message="Please enter your name.">
+        <br>
+        <br>
+        <h3>Mensaje:</h3>
+        <br>
+        <textarea name="mensaje" rows="6" cols="60" style="color:black" id="message" required data-validation-required-message="Please enter a message."></textarea>
+        <br>
+        <br>
+        <button id="btn_enviar" name="enviar"> Comment </button>
+        </div>
+    </div>
+    
+{% endblock %}
+{% block scripts %}
+
+<script>
+
+    $("#btn_enviar").click(function(){        
+        console.log("VAMO");
+        var data={
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            id:'{{post.id}}',
+            titulo_txt:$('#name').val(),
+            coment_txt:$('#message').val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: "{% url 'mclovin:save_message' %}",
+            data: data,
+            success: function(result){
+                $("#mensajes").html(result);
+                $("#name").val("");
+                $("#message").val("");
+            },
+            error: function(err){
+                console.log("ERRRORRRR");
+                console.log(err.responseText);
+            },
+        });
+    });
+</script>
+
+
+{% endblock %}

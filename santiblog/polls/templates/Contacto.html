@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block contenido %}
+
+<html>
+<br>
+    <br>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col s4 offset-s4 card-panel grey lighten-5 ">
+                    <div class="contenido" style="text-align: center">    
+                        Nombre:<br>
+                        <input type="mail" name="Nombre"><br>
+                        Apellido:<br>
+                        <input type="mail" name="Apellido"><br>
+                        Email:<br>
+                        <input type="mail" name="Email"><br>
+                        Asunto:<br>
+                        <input type="mail" name="Asunto"><br>
+                        Mensaje:<br>
+                        <input type="texto" name="Mensaje"><br>
+                        <input type="submit" value="Enviar"><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+	</body>
+</html>
+{% endblock %}
